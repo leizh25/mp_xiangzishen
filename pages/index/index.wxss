@@ -1,1 +1,1 @@
-.out{width:500rpx;height:500rpx;background-color:pink}.out .box{width:350rpx;height:350rpx;background-color:orange}.out .box .inner{width:280rpx;height:350rpx}.out .box .text{color:#000;font-size:20px}.out .row{border:1px solid green;width:380px;height:10px}
+.banner{padding-top:40rpx}.banner swiper{height:460rpx}.banner swiper swiper-item image{width:690rpx;height:460rpx;border-radius:30rpx}
