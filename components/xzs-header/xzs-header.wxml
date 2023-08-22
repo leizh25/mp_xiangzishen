@@ -1,0 +1,8 @@
+<view class="header">
+  <navigator url="/pages/index/index" class="logo">
+    <image src="/images/logo.jpg" class="pic" mode="heightFix"/>
+  </navigator>
+  <view class="search">
+    <icon type="success" color="#BDA066"/>
+  </view>
+</view>
