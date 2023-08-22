@@ -1,6 +1,6 @@
 <xzs-header></xzs-header>
 <view class="banner">
-  <swiper previous-margin="30rpx" indicator-dots circular autoplay interval="3000" 	indicator-active-color="#BDA066" 	indicator-color="rgba(255,255,255,.3)">
+  <swiper previous-margin="30rpx" indicator-dots circular autoplay interval="3000" indicator-active-color="#BDA066" indicator-color="rgba(255,255,255,.3)">
     <swiper-item>
       <image src="/images/banner0.jpg" mode="" />
     </swiper-item>
@@ -14,4 +14,15 @@
       <image src="/images/banner3.jpg" mode="" />
     </swiper-item>
   </swiper>
+</view>
+
+<view class="scrollNav">
+  <scroll-view scroll-x>
+    <navigator url="" class="item" wx:for="{{6}}" wx:key="index">
+      <view class="pic">
+        <image src="/images/navicon{{index+1}}.png" mode="" />
+      </view>
+      <view class="text">明星茶</view>
+    </navigator>
+  </scroll-view>
 </view>
