@@ -32,6 +32,7 @@
     }]
   },
   "usingComponents": {
-    "xzs-header":"components/xzs-header/xzs-header"
+    "xzs-header":"components/xzs-header/xzs-header",
+    "xzs-news-item":"components/xzs-news-item/xzs-news-item"
   }
 }

@@ -1,0 +1,22 @@
+<view class="newsItem">
+  <view class="pic">
+    <image class="img" src="/images/newspic.jpg" mode="aspectFill" />
+  </view>
+  <view class="text">
+    <view class="title">新闻模块标题新闻模块标题新闻模块标题新闻模块标题新闻模块标题新闻模块标题新闻模块标题</view>
+    <view class="info">
+      <view class="block">
+        <icon type="success" size="20" />
+        <text>08-23</text>
+      </view>
+      <view class="block">
+        <icon type="success" size="20" />
+        <text>99</text>
+      </view>
+      <view class="block">
+        <icon type="success" size="20" />
+        <text>张三</text>
+      </view>
+    </view>
+  </view>
+</view>
