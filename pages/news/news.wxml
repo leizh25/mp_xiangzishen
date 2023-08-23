@@ -1,1 +1,6 @@
 <xzs-header></xzs-header>
+<view class="box">
+  <view class="inner">
+    <view class="text">scss测试</view>
+  </view>
+</view>
