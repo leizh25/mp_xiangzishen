@@ -2,13 +2,16 @@
 import {
   newDetail
 } from "../../api/apis"
+import {
+  formatTime,formatNumber
+} from "../../utils/common"
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    detail: {}
   },
 
   /**
@@ -20,10 +23,16 @@ Page({
   //获取详情
   getDetail() {
     newDetail({
-      id:"63c38e81e1a35ce43a2689e4"
+      id: "63c38e81e1a35ce43a2689e4"
     }).then(res => {
       console.log('res: ', res);
-
+      res.data.publish_date = formatTime(res.data.publish_date,6)
+      res.data.view_count = formatNumber(res.data.view_count)
+      res.data.content = res.data.content.replace(/<p/g,"<p class='pstyle'")
+      res.data.content = res.data.content.replace(/<img/g,"<img class='imgstyle'")
+      this.setData({
+        detail: res.data
+      })
     })
   },
   /**

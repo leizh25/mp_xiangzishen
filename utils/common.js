@@ -23,7 +23,9 @@ export function formatTime(value, type = 0) {
     year + "年" + month + "月" + date,
     year + "年" + month + "月" + date + " " + hour + ":" + minute + ":" + second,
     hour + ":" + minute + ":" + second,
-    month + "-" + date
+    month + "-" + date,
+    year + "-" + month + "-" + date + " " + hour + ":" + minute,
+
   ]
   return arr[type];
 }

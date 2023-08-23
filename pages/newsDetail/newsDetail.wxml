@@ -1,10 +1,10 @@
 <view class="detail">
-  <view class="title">文章标题文章标题文章标题文章标题文章标题文章标题文章标题</view>
+  <view class="title">{{detail.title}}</view>
   <view class="info">
     <view class="left">
       <text>2023-02-18 23:33</text>
-      <text>咸虾米</text>
-      <text>5982阅读</text>
+      <text>{{detail.author}}</text>
+      <text>{{detail.view_count}}阅读</text>
     </view>
     <view class="right">
       <van-icon name="share-o" size="18" />
@@ -15,7 +15,7 @@
     </view>
   </view>
   <view class="content">
-    这里是新闻详情部分
+    <rich-text nodes="{{detail.content}}"/>
   </view>
   <view class="copyright">
     <view class="top">免责声明</view>
