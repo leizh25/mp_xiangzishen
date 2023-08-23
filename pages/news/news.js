@@ -2,14 +2,18 @@
 import {
   queryNews
 } from "../../api/apis"
-import {formatNumber,formatTime} from "../../utils/common"
+import {
+  formatNumber,
+  formatTime
+} from "../../utils/common"
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    newsArr: []
+    newsArr: [],
+    loading:false
   },
 
   /**
@@ -18,17 +22,25 @@ Page({
   onLoad(options) {
     this.getNewsData()
   },
-  getNewsData() {
+  getNewsData(size = 0) {
+    this.setData({
+      loading:true
+    })
     queryNews({
       limit: 8,
-      size: 0
+      size
     }).then(res => {
-      // console.log('res: ', res);
+      console.log('res: ', res);
       res.data.forEach(item => item.view_count = formatNumber(item.view_count))
       res.data.forEach(item => item.publish_date = formatTime(item.publish_date, 5))
+      // let oldData = this.data.newsArr
+      // let newData = oldData.concat(res.data)
       this.setData({
-        newsArr: res.data
+        // newsArr: res.data
+        newsArr: this.data.newsArr.concat(res.data),
+        loading:false
       })
+
     })
   },
 
@@ -72,7 +84,7 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom() {
-
+    this.getNewsData(this.data.newsArr.length)
   },
 
   /**

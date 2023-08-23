@@ -6,6 +6,7 @@
     </view>
   </view>
   <view class="loadOut">
-
+    <van-loading color="#1989fa" wx:if="{{loading}}"/>
+    <view class="noDate">没有更多数据了</view>
   </view>
 </view>
