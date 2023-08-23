@@ -13,7 +13,8 @@ Page({
    */
   data: {
     newsArr: [],
-    loading:false
+    loading:false,
+    isData:false
   },
 
   /**
@@ -31,15 +32,20 @@ Page({
       size
     }).then(res => {
       console.log('res: ', res);
+      wx.stopPullDownRefresh()
       res.data.forEach(item => item.view_count = formatNumber(item.view_count))
       res.data.forEach(item => item.publish_date = formatTime(item.publish_date, 5))
-      // let oldData = this.data.newsArr
-      // let newData = oldData.concat(res.data)
       this.setData({
-        // newsArr: res.data
         newsArr: this.data.newsArr.concat(res.data),
-        loading:false
+        loading:false,
       })
+      if(this.data.newsArr.length == res.total){
+        console.log("没有更多了");
+        this.setData({
+          isData:true,
+          loading:false
+        })
+      }
 
     })
   },
@@ -77,14 +83,19 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh() {
-
+    this.setData({
+      newsArr:[],
+      isData:false,
+      loading:false
+    })
+    this.getNewsData()
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
   onReachBottom() {
-    this.getNewsData(this.data.newsArr.length)
+    this.data.isData || this.getNewsData(this.data.newsArr.length)
   },
 
   /**
