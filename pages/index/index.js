@@ -4,14 +4,53 @@ Page({
    * 页面的初始数据
    */
   data: {
-    
+    navArr:[],
+    newsArr:[]
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    
+    this.getNavData()
+    this.getNewsData()
+  },
+
+  //获取导航数据
+  getNavData(){
+    wx.request({
+      url: 'https://tea.qingnian8.com/nav/get',
+      header:{
+        "content-type":"application/json"
+      },
+      method:"POST",
+      success:res=>{
+        // console.log(res);
+        this.setData({
+          navArr:res.data.data
+        })
+      }
+    })
+  },
+  //获取新闻列表
+  getNewsData(){
+    wx.request({
+      url: 'https://tea.qingnian8.com/news/get',
+      header:{
+        "content-type":"application/json"
+      },
+      data:{
+        limit:3,
+        hot:true
+      },
+      method:"POST",
+      success:res=>{
+        console.log(res.data.data);
+        this.setData({
+          newsArr:res.data.data
+        })
+      }
+    })
   },
 
   /**
