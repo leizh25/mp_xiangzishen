@@ -6,15 +6,15 @@
     <view class="title">{{item.title}}</view>
     <view class="info">
       <view class="block">
-        <van-icon name="clock-o" size="28rpx"/>
+        <van-icon class="vanicon" name="clock-o" size="28rpx"/>
         <text>{{item.publish_date}}</text>
       </view>
       <view class="block">
-        <van-icon name="eye-o" size="30rpx"/>
+        <van-icon class="vanicon" name="eye-o" size="30rpx"/>
         <text>{{item.view_count}}</text>
       </view>
       <view class="block">
-        <van-icon name="user-o" size="28rpx"/>
+        <van-icon class="vanicon" name="user-o" size="28rpx"/>
         <text>{{item.author}}</text>
       </view>
     </view>

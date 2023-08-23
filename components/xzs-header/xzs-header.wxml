@@ -3,6 +3,6 @@
     <image src="/images/logo.jpg" class="pic" mode="heightFix"/>
   </navigator>
   <view class="search">
-    <van-icon name="search" />
+    <van-icon class="vanicon" name="search" />
   </view>
 </view>

@@ -6,7 +6,12 @@ Component({
   properties: {
     item:{
       type:Object,
-      value:{}
+      value:{
+        title:"默认测试标题",
+        publish_date:"169280064",
+        view_count:"1008",
+        author:"雷著政"
+      }
     }
   },
 

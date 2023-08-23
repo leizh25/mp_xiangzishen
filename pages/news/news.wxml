@@ -1,6 +1,11 @@
 <xzs-header></xzs-header>
-<view class="box">
-  <view class="inner">
-    <view class="text">scss测试</view>
+<view class="news">
+  <view class="content">
+    <view class="box" wx:for="{{newsArr}}" wx:key="_id">
+      <xzs-news-item item="{{item}}"></xzs-news-item>
+    </view>
+  </view>
+  <view class="loadOut">
+
   </view>
 </view>
