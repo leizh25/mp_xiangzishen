@@ -1,18 +1,33 @@
 // pages/classify/classify.js
+import {
+  listNav
+} from "../../api/apis"
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    navActive: 0,
+    navArr: []
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
+    this.getNavList()
+  },
+  //获取分类导航
+  getNavList() {
+    listNav().then(res => {
+      console.log('res: ', res);
+      this.setData({
+        navArr: res.data
+      })
+      this.selectComponent("#myTabs").resize()
 
+    })
   },
 
   /**

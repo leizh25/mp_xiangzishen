@@ -1,1 +1,11 @@
 <xzs-header></xzs-header>
+<view class="banner">
+  <image class="pic" src="/images/teaBanner.jpg" mode="aspectFill" />
+</view>
+
+<view class="nav">
+  <van-tabs active="{{ navActive }}" border color="#bda006" title-active-color="#bda006" id="myTabs">
+    <van-tab title="{{item.classname}}" wx:for="{{navArr}}" wx:key="_id">内容 1</van-tab>
+   
+  </van-tabs>
+</view>

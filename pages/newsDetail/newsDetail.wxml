@@ -1,5 +1,5 @@
 <!-- 骨架屏 -->
-<view style="padding:80rpx 0" wx:if="{{!detail}}">
+<view style="padding:80rpx 0" wx:if="{{!detail.title}}">
   <van-skeleton title row="5" />
 </view>
 
