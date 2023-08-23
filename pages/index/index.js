@@ -1,7 +1,11 @@
 import {
-  formatNumber, formatTime
+  formatNumber,
+  formatTime
 } from "../../utils/common"
-
+import {
+  listNav,
+  queryNews
+} from "../../api/apis"
 Page({
 
   /**
@@ -22,41 +26,28 @@ Page({
 
   //获取导航数据
   getNavData() {
-    wx.request({
-      url: 'https://tea.qingnian8.com/nav/get',
-      header: {
-        "content-type": "application/json"
-      },
-      method: "POST",
-      success: res => {
-        // console.log(res);
-        this.setData({
-          navArr: res.data.data
-        })
-      }
+
+    listNav().then(res => {
+      // console.log(res);
+      this.setData({
+        navArr: res.data
+      })
     })
   },
   //获取新闻列表
   getNewsData() {
-    wx.request({
-      url: 'https://tea.qingnian8.com/news/get',
-      header: {
-        "content-type": "application/json"
-      },
-      data: {
-        limit: 3,
-        hot: true
-      },
-      method: "POST",
-      success: res => {
-        // console.log(res.data.data);
-        res.data.data.forEach(item => item.view_count = formatNumber(item.view_count))
-        res.data.data.forEach(item => item.publish_date = formatTime(item.publish_date,5))
-        this.setData({
-          newsArr: res.data.data
-        })
-      }
+    queryNews({
+      limit: 3,
+      hot: true
+    }).then(res => {
+      // console.log('res: ', res);
+      res.data.forEach(item => item.view_count = formatNumber(item.view_count))
+      res.data.forEach(item => item.publish_date = formatTime(item.publish_date, 5))
+      this.setData({
+        newsArr: res.data
+      })
     })
+
   },
 
   /**

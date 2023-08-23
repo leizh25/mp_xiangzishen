@@ -17,7 +17,7 @@
 </view>
 
 <view class="scrollNav">
-  <scroll-view scroll-x>
+  <scroll-view scroll-x	show-scrollbar="{{false}}" enhanced >
     <navigator url="" class="item" wx:for="{{navArr}}" wx:key="_id">
       <view class="pic">
         <image src="{{item.icon}}" mode="" />
