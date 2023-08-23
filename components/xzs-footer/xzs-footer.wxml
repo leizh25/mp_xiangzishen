@@ -1,0 +1,5 @@
+<view class="footer">
+<view class="row">解释权归雷著政个人所有</view>
+<view class="row">Copyright © {{year}} 版权所有</view>
+<view class="row">江西省赣州市兴国县高兴镇文溪村千里山68号山洞</view>
+</view>
