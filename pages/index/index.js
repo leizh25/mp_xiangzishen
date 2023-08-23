@@ -1,11 +1,15 @@
+import {
+  formatNumber, formatTime
+} from "../../utils/common"
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    navArr:[],
-    newsArr:[]
+    navArr: [],
+    newsArr: []
   },
 
   /**
@@ -17,37 +21,39 @@ Page({
   },
 
   //获取导航数据
-  getNavData(){
+  getNavData() {
     wx.request({
       url: 'https://tea.qingnian8.com/nav/get',
-      header:{
-        "content-type":"application/json"
+      header: {
+        "content-type": "application/json"
       },
-      method:"POST",
-      success:res=>{
+      method: "POST",
+      success: res => {
         // console.log(res);
         this.setData({
-          navArr:res.data.data
+          navArr: res.data.data
         })
       }
     })
   },
   //获取新闻列表
-  getNewsData(){
+  getNewsData() {
     wx.request({
       url: 'https://tea.qingnian8.com/news/get',
-      header:{
-        "content-type":"application/json"
+      header: {
+        "content-type": "application/json"
       },
-      data:{
-        limit:3,
-        hot:true
+      data: {
+        limit: 3,
+        hot: true
       },
-      method:"POST",
-      success:res=>{
-        console.log(res.data.data);
+      method: "POST",
+      success: res => {
+        // console.log(res.data.data);
+        res.data.data.forEach(item => item.view_count = formatNumber(item.view_count))
+        res.data.data.forEach(item => item.publish_date = formatTime(item.publish_date,5))
         this.setData({
-          newsArr:res.data.data
+          newsArr: res.data.data
         })
       }
     })
@@ -57,48 +63,48 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-    
+
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    
+
   },
 
   /**
    * 生命周期函数--监听页面隐藏
    */
   onHide: function () {
-    
+
   },
 
   /**
    * 生命周期函数--监听页面卸载
    */
   onUnload: function () {
-    
+
   },
 
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-    
+
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-    
+
   },
 
   /**
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
-    
+
   }
 })
