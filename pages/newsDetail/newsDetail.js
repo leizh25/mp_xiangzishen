@@ -3,8 +3,10 @@ import {
   newDetail
 } from "../../api/apis"
 import {
-  formatTime,formatNumber
+  formatTime,
+  formatNumber
 } from "../../utils/common"
+let id = ""
 Page({
 
   /**
@@ -18,18 +20,20 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
+    // console.log('options: ', options);
+    id = options.id
     this.getDetail()
   },
   //获取详情
   getDetail() {
     newDetail({
-      id: "63c38e81e1a35ce43a2689e4"
+      id
     }).then(res => {
-      console.log('res: ', res);
-      res.data.publish_date = formatTime(res.data.publish_date,6)
+      // console.log('res: ', res);
+      res.data.publish_date = formatTime(res.data.publish_date, 6)
       res.data.view_count = formatNumber(res.data.view_count)
-      res.data.content = res.data.content.replace(/<p/g,"<p class='pstyle'")
-      res.data.content = res.data.content.replace(/<img/g,"<img class='imgstyle'")
+      res.data.content = res.data.content.replace(/<p/g, "<p class='pstyle'")
+      res.data.content = res.data.content.replace(/<img/g, "<img class='imgstyle'")
       this.setData({
         detail: res.data
       })
