@@ -1,4 +1,10 @@
-<view class="detail">
+<!-- 骨架屏 -->
+<view style="padding:80rpx 0" wx:if="{{!detail}}">
+  <van-skeleton title row="5" />
+</view>
+
+
+<view class="detail" wx:else>
   <view class="title">{{detail.title}}</view>
   <view class="info">
     <view class="left">
@@ -15,7 +21,7 @@
     </view>
   </view>
   <view class="content">
-    <rich-text nodes="{{detail.content}}"/>
+    <rich-text nodes="{{detail.content}}" />
   </view>
   <view class="copyright">
     <view class="top">免责声明</view>

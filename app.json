@@ -37,6 +37,7 @@
     "xzs-footer": "components/xzs-footer/xzs-footer",
     "van-button": "@vant/weapp/button/index",
     "van-icon": "@vant/weapp/icon/index",
-    "van-loading": "@vant/weapp/loading/index"
+    "van-loading": "@vant/weapp/loading/index",
+    "van-skeleton": "@vant/weapp/skeleton/index"
   }
 }

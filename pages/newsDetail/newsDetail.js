@@ -37,6 +37,9 @@ Page({
       this.setData({
         detail: res.data
       })
+      wx.setNavigationBarTitle({
+        title:res.data.title
+      })
     })
   },
   /**
@@ -85,6 +88,18 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage() {
-
+    return {
+      title: this.data.detail.title,
+      path: "/pages/newsDetail/newsDetail?id=" + this.data.detail._id,
+      imageUrl: this.data.detail.content.match(/https:\/\/[^ "]+\.(?:jpg|png)/g)
+    }
+  },
+  //分享到朋友圈
+  onShareTimeline() {
+    return {
+      title: this.data.detail.title,
+      path: "/pages/newsDetail/newsDetail?id=" + this.data.detail._id,
+      imageUrl: this.data.detail.content.match(/https:\/\/[^ "]+\.(?:jpg|png)/g)[0]
+    }
   }
 })
