@@ -6,15 +6,15 @@
     <view class="title">新闻模块标题新闻模块标题新闻模块标题新闻模块标题新闻模块标题新闻模块标题新闻模块标题</view>
     <view class="info">
       <view class="block">
-        <icon type="success" size="20" />
+        <van-icon name="clock-o" size="28rpx"/>
         <text>08-23</text>
       </view>
       <view class="block">
-        <icon type="success" size="20" />
+        <van-icon name="eye-o" size="30rpx"/>
         <text>99</text>
       </view>
       <view class="block">
-        <icon type="success" size="20" />
+        <van-icon name="user-o" size="28rpx"/>
         <text>张三</text>
       </view>
     </view>

@@ -5,6 +5,7 @@
   justify-content: space-between;
   align-items: center;
   padding: 0 30rpx;
+
   .logo {
     height: 70rpx;
 
@@ -13,5 +14,10 @@
     }
   }
 
-  .search {}
+  .search {
+    color: var(--themeColor);
+    van-icon{
+      font-size: 50rpx;
+    }
+  }
 }

@@ -1,5 +1,4 @@
 <xzs-header></xzs-header>
-<van-button type="primary">默认按钮</van-button>
 <view class="banner">
   <swiper previous-margin="30rpx" indicator-dots circular autoplay interval="3000" indicator-active-color="#BDA066" indicator-color="rgba(255,255,255,.3)">
     <swiper-item>
