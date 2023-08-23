@@ -10,6 +10,13 @@
       "list": [
         {
           "name": "",
+          "pathName": "pages/newsDetail/newsDetail",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
           "pathName": "pages/news/news",
           "query": "",
           "launchMode": "default",

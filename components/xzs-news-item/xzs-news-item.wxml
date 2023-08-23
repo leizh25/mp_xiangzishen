@@ -1,4 +1,4 @@
-<view class="newsItem">
+<navigator url="/pages/newsDetail/newsDetail" class="newsItem">
   <view class="pic">
     <image class="img" src="{{item.picurl}}" mode="aspectFill" />
   </view>
@@ -19,4 +19,4 @@
       </view>
     </view>
   </view>
-</view>
+</navigator>
