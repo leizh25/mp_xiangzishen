@@ -23,7 +23,7 @@ Page({
   async onLoad(options) {
     const {index} = options
     await this.getNavList()
-    if(idnex){
+    if(index){
       this.navChange(index)
     }else{
       navId = this.data.navArr[0]._id
