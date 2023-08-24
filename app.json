@@ -35,6 +35,7 @@
     "xzs-header": "components/xzs-header/xzs-header",
     "xzs-news-item": "components/xzs-news-item/xzs-news-item",
     "xzs-footer": "components/xzs-footer/xzs-footer",
+    "xzs-product": "components/xzs-product/xzs-product",
     "van-button": "@vant/weapp/button/index",
     "van-icon": "@vant/weapp/icon/index",
     "van-loading": "@vant/weapp/loading/index",

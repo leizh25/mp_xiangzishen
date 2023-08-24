@@ -5,7 +5,19 @@
 
 <view class="nav">
   <van-tabs active="{{ navActive }}" border color="#bda006" title-active-color="#bda006" id="myTabs">
-    <van-tab title="{{item.classname}}" wx:for="{{navArr}}" wx:key="_id">内容 1</van-tab>
-   
+    <van-tab title="{{item.classname}}" wx:for="{{navArr}}" wx:key="_id"></van-tab>
+
   </van-tabs>
+</view>
+
+<view class="content">
+  <view class="body">
+    <view class="box" wx:for="{{productArr}}" wx:key="_id">
+    <xzs-product item="{{item}}"></xzs-product>
+    </view>
+  </view>
+  <view class="loadingOut">
+    <van-loading color="#1989fa" />
+    <view class="noDate">没有更多数据了</view>
+  </view>
 </view>

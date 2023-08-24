@@ -6,4 +6,5 @@ export const listNav = () => request({url:"/nav/get",method:"post"})
 export const queryNews = data => request({url:"/news/get",method:"post",data})
 //获取新闻详情
 export const newDetail = data => request({url:"/news/detail",method:"post",data})
-
+//获取产品列表
+export const queryProduct = data => request({url:"/product/getlist",method:"post",data})

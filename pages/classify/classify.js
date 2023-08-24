@@ -1,6 +1,7 @@
 // pages/classify/classify.js
 import {
-  listNav
+  listNav,
+  queryProduct
 } from "../../api/apis"
 Page({
 
@@ -9,7 +10,8 @@ Page({
    */
   data: {
     navActive: 0,
-    navArr: []
+    navArr: [],
+    productArr:[]
   },
 
   /**
@@ -17,16 +19,28 @@ Page({
    */
   onLoad(options) {
     this.getNavList()
+    this.getProductList()
   },
   //获取分类导航
   getNavList() {
     listNav().then(res => {
-      console.log('res: ', res);
+      // console.log('res: ', res);
       this.setData({
         navArr: res.data
       })
       this.selectComponent("#myTabs").resize()
 
+    })
+  },
+  //获取产品列表
+  getProductList() {
+    queryProduct({
+      navid:"63b9600be1a35c358c18483b"
+    }).then(res=>{
+      console.log('res: ', res);
+      this.setData({
+        productArr:res.data
+      })
     })
   },
 
