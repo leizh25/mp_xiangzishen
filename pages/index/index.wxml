@@ -18,7 +18,7 @@
 
 <view class="scrollNav">
   <scroll-view scroll-x	show-scrollbar="{{false}}" enhanced >
-    <navigator url="" class="item" wx:for="{{navArr}}" wx:key="_id">
+    <navigator open-type="reLaunch" url="/pages/classify/classify?index={{index}}" class="item" wx:for="{{navArr}}" wx:key="_id">
       <view class="pic">
         <image src="{{item.icon}}" mode="" />
       </view>

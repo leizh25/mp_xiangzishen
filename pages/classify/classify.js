@@ -21,9 +21,14 @@ Page({
    * 生命周期函数--监听页面加载
    */
   async onLoad(options) {
+    const {index} = options
     await this.getNavList()
-    navId = this.data.navArr[0]._id
-    this.getProductList()
+    if(idnex){
+      this.navChange(index)
+    }else{
+      navId = this.data.navArr[0]._id
+      this.getProductList()
+    }
   },
   //获取分类导航
   async getNavList() {
@@ -54,10 +59,11 @@ Page({
   //导航条切换的回调
   navChange(e) {
     // console.log(e);
-    let index = e.detail.index
+    let index = e?.detail?.index ?? e
     navId = this.data.navArr[index]._id
     // console.log('navId: ', navId);
     this.setData({
+      navActive:Number(index),
       productArr: [],
       isAllDataLoaded:false
     })
