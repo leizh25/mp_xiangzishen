@@ -3,6 +3,7 @@ import {
   listNav,
   queryProduct
 } from "../../api/apis"
+let navId = ""
 Page({
 
   /**
@@ -35,13 +36,24 @@ Page({
   //获取产品列表
   getProductList() {
     queryProduct({
-      navid:"63b9600be1a35c358c18483b"
+      navid:navId
     }).then(res=>{
       console.log('res: ', res);
       this.setData({
         productArr:res.data
       })
     })
+  },
+  //导航条切换的回调
+  navChange(e){
+    // console.log(e);
+    let index = e.detail.index
+    navId = this.data.navArr[index]._id
+    // console.log('navId: ', navId);
+    this.setData({
+      productArr:[]
+    })
+    this.getProductList()
   },
 
   /**

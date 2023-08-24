@@ -4,7 +4,7 @@
 </view>
 
 <view class="nav">
-  <van-tabs active="{{ navActive }}" border color="#bda006" title-active-color="#bda006" id="myTabs">
+  <van-tabs active="{{ navActive }}" border color="#bda006" title-active-color="#bda006" id="myTabs" bind:click="navChange">
     <van-tab title="{{item.classname}}" wx:for="{{navArr}}" wx:key="_id"></van-tab>
 
   </van-tabs>
