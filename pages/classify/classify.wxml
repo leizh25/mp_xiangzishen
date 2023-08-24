@@ -17,7 +17,7 @@
     </view>
   </view>
   <view class="loadingOut">
-    <van-loading color="#1989fa" />
-    <view class="noDate">没有更多数据了</view>
+    <van-loading color="#1989fa" wx:if="{{loading}}"/>
+    <view class="noDate" wx:if="{{isAllDataLoaded}}">没有更多数据了</view>
   </view>
 </view>

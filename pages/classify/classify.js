@@ -3,7 +3,7 @@ import {
   listNav,
   queryProduct
 } from "../../api/apis"
-let navId = ""
+let navId;
 Page({
 
   /**
@@ -12,19 +12,22 @@ Page({
   data: {
     navActive: 0,
     navArr: [],
-    productArr:[]
+    productArr: [],
+    isAllDataLoaded:false,
+    loading:false
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad(options) {
-    this.getNavList()
+  async onLoad(options) {
+    await this.getNavList()
+    navId = this.data.navArr[0]._id
     this.getProductList()
   },
   //获取分类导航
-  getNavList() {
-    listNav().then(res => {
+  async getNavList() {
+    await listNav().then(res => {
       // console.log('res: ', res);
       this.setData({
         navArr: res.data
@@ -34,24 +37,29 @@ Page({
     })
   },
   //获取产品列表
-  getProductList() {
+  getProductList(size = 0) {
+    this.setData({loading:true})
     queryProduct({
-      navid:navId
-    }).then(res=>{
-      console.log('res: ', res);
+      navid: navId,
+      size
+    }).then(res => {
+      // console.log('res: ', res);
       this.setData({
-        productArr:res.data
+        productArr: [...this.data.productArr, ...res.data],
+        loading:false
       })
+      if(res.total == this.data.productArr.length) this.setData({isAllDataLoaded: true})
     })
   },
   //导航条切换的回调
-  navChange(e){
+  navChange(e) {
     // console.log(e);
     let index = e.detail.index
     navId = this.data.navArr[index]._id
     // console.log('navId: ', navId);
     this.setData({
-      productArr:[]
+      productArr: [],
+      isAllDataLoaded:false
     })
     this.getProductList()
   },
@@ -95,7 +103,7 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom() {
-
+    this.data.isAllDataLoaded || this.getProductList(this.data.productArr.length)
   },
 
   /**
