@@ -21,3 +21,4 @@
     <view class="noDate" wx:if="{{isAllDataLoaded}}">没有更多数据了</view>
   </view>
 </view>
+<xzs-footer></xzs-footer>

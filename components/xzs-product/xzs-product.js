@@ -23,6 +23,12 @@ Component({
    * 组件的方法列表
    */
   methods: {
-
+    clickPro(e){
+      // console.log('e: ', e);
+      const {id} = e.currentTarget.dataset
+      wx.navigateTo({
+        url: `/pages/proDetail/proDetail?id=${id}`,
+      })
+    }
   }
 })
