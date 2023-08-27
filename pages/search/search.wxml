@@ -1,0 +1,25 @@
+<van-search value="{{ value }}" shape="round" background="#C09F64" placeholder="请输入产品名称" use-action-slot bind:change="onChange" bind:search="onSearch" bind:clear="onClear">
+  <view slot="action" bind:tap="onClick" style="color: #fff;padding: 0 30rpx;">搜索</view>
+</van-search>
+
+<view class="history">
+  <view class="title">
+    <view class="text">搜索历史</view>
+    <view class="remove">
+      <van-icon name="delete-o" size="18" />
+      <text class="font">清空历史</text>
+    </view>
+  </view>
+  <view class="content">
+    <view class="item" wx:for="{{3}}" wx:key="item">每条搜索内容</view>
+  </view>
+</view>
+
+<view class="total">
+  共检索<text>3</text>款产品
+</view>
+<view class="main">
+  <view class="box" wx:for="{{3}}">
+    <xzs-product> </xzs-product>
+  </view>
+</view>

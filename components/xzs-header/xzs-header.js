@@ -22,6 +22,12 @@ Component({
       wx.makePhoneCall({
         phoneNumber:"12312341234"
       })
+    },
+    //跳转到搜索页面
+    clickSearch(){
+      wx.navigateTo({
+        url: '/pages/search/search',
+      })
     }
   }
 })
