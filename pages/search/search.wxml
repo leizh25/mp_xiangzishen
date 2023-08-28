@@ -21,3 +21,6 @@
         <xzs-product item="{{item}}"> </xzs-product>
     </view>
 </view>
+
+<!-- 搜索提示 -->
+<van-empty image="search" description="没有搜索结果" wx:if="{{noData}}"/>

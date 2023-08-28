@@ -11,8 +11,8 @@ Page({
         historyArr: [],
         productList: [],
         total: 0,
-        keyword: ""
-
+        keyword: "",
+        noData: true
     },
 
     /**
@@ -33,27 +33,29 @@ Page({
         })
     },
     //清空输入框
-    onClear(){
+    onClear() {
         this.setData({
-            keyword:"",
-            productList:[],
-            total:0
+            keyword: "",
+            productList: [],
+            total: 0,
+            noData:false
         })
     },
     //点击搜索历史项
-    tapHisItem(e){
+    tapHisItem(e) {
         // console.log(e);
         this.setData({
-            keyword:e.currentTarget.dataset.value
+            keyword: e.currentTarget.dataset.value
         })
         this.getData()
     },
     //清空搜索历史
-    removeHistory(){
+    removeHistory() {
         this.setData({
-            historyArr:[],
-            total:0,
-            productList:[]
+            historyArr: [],
+            total: 0,
+            productList: [],
+            noData:false
         })
         wx.removeStorageSync('searchKeyArr')
     },
@@ -76,9 +78,16 @@ Page({
             limit: 10
         }).then(res => {
             // console.log(res);
+            const noData = false
+            if (res.data.length == 0) {
+                this.setData({
+                    noData: true
+                })
+            }
             this.setData({
                 total: res.total,
-                productList: res.data
+                productList: res.data,
+                noData
             })
         })
     },

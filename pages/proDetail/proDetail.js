@@ -2,6 +2,7 @@
 import {
   getProDetailAPI
 } from "../../api/apis"
+let id;
 Page({
 
   /**
@@ -21,6 +22,7 @@ Page({
     } = options
     this.getProDetail(id)
   },
+  //获取产品详情
   getProDetail(id) {
     getProDetailAPI({id}).then(res => {
       // console.log('res: ', res);
