@@ -31,6 +31,9 @@ Page({
         proData:res.data,
         isLoading:false
       })
+      wx.setNavigationBarTitle({
+        title: this.data.proData.title,
+      })
     })
   },
 
